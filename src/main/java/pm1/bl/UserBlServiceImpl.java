@@ -39,7 +39,21 @@ public class UserBlServiceImpl implements UserBlService {
      */
     @Override
     public UserLoginResponse login(String username, String password) throws WrongUsernameOrPasswordException, UsernameDoesNotFoundException {
-
+          UserLoginResponse userLoginResponse=null;
+          if(userDataService.isUserExistent(username)){
+              if(userDataService.confirmPassword(username,password)){
+                  userLoginResponse=new UserLoginResponse(2,"");
+              }
+              else{
+                  userLoginResponse=new UserLoginResponse(1,"");
+                  throw new WrongUsernameOrPasswordException();
+              }
+          }
+          else{
+              userLoginResponse=new UserLoginResponse(0,"");
+              throw new UsernameDoesNotFoundException();
+          }
+          return userLoginResponse;
     }
 
 }

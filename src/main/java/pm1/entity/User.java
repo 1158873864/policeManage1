@@ -1,5 +1,7 @@
 package pm1.entity;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,6 +10,7 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @UniqueElements
     @Column(name = "username")
     private String username;
     @Column(name = "password")
