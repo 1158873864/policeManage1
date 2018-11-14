@@ -10,10 +10,13 @@ public interface StaffDataService {
 
 
 	void addStaff(Staff staff);
+	void saveStaff(Staff staff);
 
-	Staff getStaffById(String id) throws NotExistException;
+	Staff getStaffById(int id) throws NotExistException;
 
 	List<Staff> getAllStaffs();
 
-	void deleteStaffById(String id) throws NotExistException;
+	void deleteStaffById(int id) throws NotExistException;
+
+	Staff findTop1ByIdentityBeforeOrderByTimestampDesc(String identity);
 }

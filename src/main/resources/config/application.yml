@@ -2,10 +2,10 @@
 #  port: 8080
 server:
   port: 8080
-#  ssl:
-#    key-store: config/www.sandc.xyz.jks
-#    key-store-password: 5869095jm29
-#    key-store-type: JKS
+  ssl:
+      key-store: config/jrq.jks
+      key-store-password: njujrq123
+      key-store-type: JKS
 logging:
   level:
     org.springframework:

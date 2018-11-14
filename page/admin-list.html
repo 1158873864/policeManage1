@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="HandheldFriendly" content="true">
+    <title>韶山路火车站地区治安采集系统</title>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=37342703" charset="UTF-8"></script>
+
+
+    <link rel="stylesheet" href="css/frozenui.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/amazeui.min.css"/>
+    <link rel="stylesheet" href="css/admin.css">
+
+
+
+</head>
+<body ontouchstart class="mui-content" style="
+width: 100%;
+position: fixed;
+height: 100%;
+overflow:auto;
+margin: 0 auto;">
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar am-topbar-inverse admin-header">
+    <div class="am-topbar-brand">
+        <img src="image/logo.jpg" class=" radius-circle rotate-hover" height="40" alt="" style="margin-top: -2%;"/>
+        <small> 韶山路火车站地区治安采集系统</small>
+
+        </button>
+    </div>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
+            class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+        <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+            <li class="am-dropdown" data-am-dropdown>
+
+                <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                    <span class="am-icon-users"></span> 菜单 <span class="am-icon-caret-down"></span>
+                </a>
+                <ul class="am-dropdown-content">
+                    <li><a href="me.html"><span class="am-icon-user"></span> 我的信息</a></li>
+
+                    <li><a href="add.html"><span class="am-icon-camera"></span> 采集信息</a></li>
+
+                    <li id="l1"><a href="staff.html"><span class="am-icon-search-plus"></span> 检索人员信息</a></li>
+
+                    <li id="l2"><a href="admin-list.html"><span class="am-icon-th-list"></span> 管理用户</a></li>
+
+                    <li><a href="index.html"><span class="am-icon-backward"></span> 返回首页</a></li>
+
+                    <li><a href="login.html" onclick="getout()"><span class="am-icon-power-off"></span> 退出</a></li>
+                </ul>
+            </li>
+            <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span
+                    class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+        </ul>
+    </div>
+</header>
+<!-- sidebar end -->
+
+<!-- content start -->
+
+<section class="ui-container">
+
+  <section id="table">
+        <h1 class="title">人员列表</h1>
+        <div class="demo-item">
+          <button type="button">   <a href="admin-add.html"><span class="am-icon-plus"></span> 添加用户</a></button>
+            <br>
+              <input id="con" type="text">
+              <span >
+            <button class="class=ui-btn ui-btn-primary" type="button" onclick="search()" style="width: 9rem">名称搜索</button>
+                  <br>
+                  <br>
+          </span>
+
+
+
+    <div class="demo-block">
+      <table class="ui-table ui-border-tb" style="background: rgba(255,255,255,0.4)">
+            <thead>
+
+            </thead><tr>
+            <th>用户名称</th>
+            <th>创建时间</th>
+            <th class="table-set">操作</th>
+          </tr>
+            <tr id="your-alert-1">
+              <td id="name1"></td>
+              <td id="date1"></td>
+              <td>
+
+                    <a href="changeadmin.html" onclick="setthisquestion(0)"><span class="am-icon-edit"></span>  修改</a>
+
+                    <button style="color:red" type="button" onclick="deletequestion(0)"><span style="color:red" class="am-icon-trash-o"></span>删除</button>
+
+
+              </td>
+            </tr>
+            <tr id="your-alert-2">
+              <td id="name2"></td>
+              <td id="date2"></td>
+              <td>
+
+
+                    <a href="changeadmin.html" onclick="setthisquestion(1)"><span class="am-icon-edit"></span>  修改</a>
+
+                    <button style="color:red" type="button" onclick="deletequestion(1)"><span style="color:red" class="am-icon-trash-o"></span>删除</button>
+
+              </td>
+            </tr>
+            <tr id="your-alert-3">
+              <td id="name3"></td>
+              <td id="date3"></td>
+              <td>
+
+
+                    <a href="changeadmin.html" onclick="setthisquestion(2)"><span class="am-icon-edit"></span>  修改</a>
+
+                    <button style="color:red" type="button" onclick="deletequestion(2)"><span style="color:red" class="am-icon-trash-o"></span>删除</button>
+
+              </td>
+            </tr>
+            <tr id="your-alert-4">
+              <td id="name4"></td>
+              <td id="date4"></td>
+              <td>
+
+
+                    <a href="changeadmin.html" onclick="setthisquestion(3)"><span class="am-icon-edit"></span>  修改</a>
+
+                    <button style="color:red" type="button" onclick="deletequestion(3)"><span style="color:red" class="am-icon-trash-o"></span>删除</button>
+
+              </td>
+            </tr>
+            <tr id="your-alert-5">
+              <td id="name5"></td>
+              <td id="date5"></td>
+              <td>
+
+
+                    <a href="changeadmin.html" onclick="setthisquestion(4)"><span class="am-icon-edit"></span>  修改</a>
+
+                    <button style="color:red" type="button" onclick="deletequestion(4)"><span style="color:red" class="am-icon-trash-o"></span>删除</button>
+
+              </td>
+            </tr>
+          </table>
+          <div  class="am-cf">
+            <div id="jilu">共 3 条记录</div>
+            <div class="am-fr">
+              <ul class="am-pagination">
+                <li><a id="pageminus" href="#" onclick="changegroup(1)">«</a></li>
+                <li><a id="page1" href="#" onclick="changepage(1)">1</a></li>
+                <li><a id="page2" href="#" onclick="changepage(2)">2</a></li>
+                <li><a id="page3" href="#" onclick="changepage(3)">3</a></li>
+                <li><a id="page4" href="#" onclick="changepage(4)">4</a></li>
+                <li><a id="page5" href="#" onclick="changepage(5)">5</a></li>
+                <li><a id="pageplus" href="#" onclick="changegroup(2)">»</a></li>
+              </ul>
+          <hr />
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+
+</div>
+  </section>
+</section>
+
+<script src="js/zepto.min.js"></script>
+<script src="js/index.js"></script>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="js/getUrl.js"></script>
+<script src="js/app.js"></script>
+<script src="js/getUrl.js"></script>
+<script src="js/admin-list.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".am-list .am-cf").click(function () {
+            $(this).next().slideToggle(200);
+            $(".am-list .am-cf").removeClass("active")
+            $(this).toggleClass("active");
+
+        })
+        $(".am-list ul li a").click(function () {
+            $(".am-list ul li a").removeClass("active");
+            $(".am-list .am-cf").removeClass("active")
+            $(this).addClass("active");
+        })
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".am-icon-btn").click(function () {
+            $(".am-offcanvas").toggle();
+            $(".modal").toggle();
+        })
+    })
+</script>
+<script>
+    $('#closeBtn').click(function () {
+        $('#admin-offcanvas').toggle();
+        if ($('#admin-offcanvas').css('display') == 'none') {
+            $('.admin-content.rightnav').css({left: '0', width: '100%'});
+        } else {
+            $('.admin-content.rightnav').css({left: '20%', width: '80%'});
+        }
+    })
+    $('#phoneTbtn').click(function () {
+        $('#admin-offcanvas').toggle();
+
+        if ($('#admin-offcanvas').css('display') == 'none') {
+            $('.admin-content.rightnav').css({left: '0', width: '100%'});
+        } else {
+            $('.admin-content.rightnav').css({left: '20%', width: '80%'});
+        }
+
+    });
+    if ($(document).width() <= 600) {
+        $('#admin-offcanvas').on('click', 'li>a', function () {
+            console.log();
+            if ($(this).attr('href')) {
+                $(this).parents('#admin-offcanvas').hide();
+            }
+        })
+    }
+
+    function getout(){
+        var storage = window.localStorage;
+        storage["has"]="no";
+    }
+    var storage = window.localStorage;
+    if(storage["has"]!="yes"){
+        window.location.href="login.html";
+    }
+
+    if(storage['adminLimits']=="社会人员"){
+        $("#l1").hide();
+        $("#l2").hide();
+    }
+    else if(storage['adminLimits']=="民警"){
+        $("#l2").hide();
+    }
+</script>
+</body>
+</html>

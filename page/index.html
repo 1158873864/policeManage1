@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="HandheldFriendly" content="true">
+    <title>韶山路火车站地区治安采集系统</title>
+    <script type="text/javascript" src="http://tajs.qq.com/stats?sId=37342703" charset="UTF-8"></script>
+
+
+    <link rel="stylesheet" href="css/frozenui.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/amazeui.min.css"/>
+    <link rel="stylesheet" href="css/admin.css">
+
+
+
+</head>
+
+<body ontouchstart class="mui-content" style="
+width: 100%;
+position: fixed;
+height: 100%;
+overflow:auto;
+margin: 0 auto;">
+
+<header class="am-topbar am-topbar-inverse admin-header">
+    <div class="am-topbar-brand">
+        <img src="image/logo.jpg" class=" radius-circle rotate-hover" height="40" alt="" style="margin-top: -2%;"/>
+        <small> 韶山路火车站地区治安采集系统</small>
+
+        </button>
+    </div>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
+            class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+        <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+            <li class="am-dropdown" data-am-dropdown>
+
+                <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                    <span class="am-icon-users"></span> 菜单 <span class="am-icon-caret-down"></span>
+                </a>
+                <ul class="am-dropdown-content">
+                    <li><a href="me.html"><span class="am-icon-user"></span> 我的信息</a></li>
+
+                    <li><a href="add.html"><span class="am-icon-camera"></span> 采集信息</a></li>
+
+                    <li id="l1"><a href="staff.html"><span class="am-icon-search-plus"></span> 检索人员信息</a></li>
+
+                    <li id="l2"><a href="admin-list.html"><span class="am-icon-th-list"></span> 管理用户</a></li>
+
+                    <li><a href="index.html"><span class="am-icon-backward"></span> 返回首页</a></li>
+
+                    <li><a href="login.html" onclick="getout()"><span class="am-icon-power-off"></span> 退出</a></li>
+                </ul>
+            </li>
+            <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span
+                    class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+        </ul>
+    </div>
+</header>
+<section class="ui-container">
+    <div class="ui-tooltips ui-tooltips-warn" style="top:6.7%;position: fixed">
+        <div class="ui-tooltips-cnt ui-border-b" style="font-size: 2rem;">
+             <span style="left: 40%;position: fixed;"><i></i>采集到的信息仅可用户警务工作！</span><a class="ui-icon-close"></a>
+        </div>
+    </div>
+    <img src="image/index.png" style="left: 25%;top:12.8%;width: 50%;height: 60%;position: fixed;">
+    <div class="ui-btn-wrap ui-btn-wrap-middle" style="left: 40%;top: 75%;position: fixed;">
+        <button onclick="gotoAdd()" class="ui-btn-lg-nowhole ui-btn-primary">
+            采集信息
+        </button>
+    </div>
+
+    <div class="ui-btn-wrap ui-btn-wrap-middle" style="left: 40%;top: 83%;position: fixed;">
+        <button id="l3" onclick="gotoList()" class="ui-btn-lg-nowhole ui-btn-primary">
+            检索人员信息
+        </button>
+    </div>
+
+    <div class="ui-btn-wrap ui-btn-wrap-middle" style="left: 40%;top: 91%;position: fixed;">
+        <button id="l4" onclick="gotoUser()" class="ui-btn-lg-nowhole ui-btn-primary">
+            管理用户
+        </button>
+    </div>
+</section>
+
+<script src="http://open.mobile.qq.com/sdk/qqapi.js?_bid=152"></script>
+<script>
+    var _mtac = {};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500421336");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>
+
+
+<script src="js/zepto.min.js"></script>
+<script src="js/index.js"></script>
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="js/getUrl.js"></script>
+<script src="js/app.js"></script>
+
+
+<script>
+    if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        window.location.href="mobile-index.html";
+    }
+
+   function gotoAdd() {
+       window.location.href="add.html";
+   }
+
+   function gotoList() {
+       window.location.href="staff.html";
+   }
+
+    function gotoUser(){
+        window.location.href="admin-list.html";
+    }
+   function getout(){
+       var storage = window.localStorage;
+       storage["has"]="no";
+   }
+   var storage = window.localStorage;
+   if(storage["has"]!="yes"){
+       window.location.href="login.html";
+   }
+
+   if(storage['adminLimits']=="社会人员"){
+       $("#l1").hide();
+       $("#l2").hide();
+       $("#l3").hide();
+       $("#l4").hide();
+   }
+   else if(storage['adminLimits']=="民警"){
+       $("#l2").hide();
+       $("#l4").hide();
+   }
+</script>
+</body>
+</html>

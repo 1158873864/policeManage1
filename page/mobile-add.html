@@ -1,0 +1,321 @@
+<!doctype html>
+<html class="no-js fixed-layout">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>添加人员</title>
+    <meta name="description" content="这是一个 index 页面">
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <link rel="stylesheet" href="css/amazeui.min.css"/>
+    <link rel="stylesheet" href="css/admin.css">
+    <script src="js/getUrl.js"></script>
+</head>
+<body ontouchstart class="mui-content" style="
+width: 100%;
+position: fixed;
+height: 100%;
+overflow:auto;
+margin: 0 auto;">
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+    以获得更好的体验！</p>
+<![endif]-->
+
+<header class="am-topbar am-topbar-inverse admin-header">
+    <div class="am-topbar-brand">
+        <img src="image/logo.jpg" class=" radius-circle rotate-hover" height="40" alt="" style="margin-top: -2%;"/>
+        <small> 韶山路火车站地区治安采集系统</small>
+    </div>
+
+    <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
+            data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span
+            class="am-icon-bars"></span></button>
+
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+        <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+            <li class="am-dropdown" data-am-dropdown>
+
+                <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                    <span class="am-icon-users"></span> 菜单 <span class="am-icon-caret-down"></span>
+                </a>
+                <ul class="am-dropdown-content">
+                    <li><a href="me.html"><span class="am-icon-user"></span> 我的信息</a></li>
+
+                    <li><a href="add.html"><span class="am-icon-camera"></span> 采集信息</a></li>
+
+                    <li id="l1"><a href="staff.html"><span class="am-icon-search-plus"></span> 检索人员信息</a></li>
+
+                    <li id="l2"><a href="admin-list.html"><span class="am-icon-th-list"></span> 管理用户</a></li>
+
+                    <li><a href="index.html"><span class="am-icon-backward"></span> 返回首页</a></li>
+
+                    <li><a href="login.html" onclick="getout()"><span class="am-icon-power-off"></span> 退出</a></li>
+                </ul>
+            </li>
+            <li class="am-hide-sm-only"><a href="javascript:;" id="admin-fullscreen"><span
+                    class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>
+        </ul>
+    </div>
+</header>
+<!-- sidebar end -->
+
+<!-- content start -->
+<div class="admin-content" style="background: rgba(255,255,255,0.3)">
+    <div class="admin-content-body">
+        <div class="am-cf am-padding am-padding-bottom-0">
+            <div class="am-fl am-cf">
+                <strong class="am-text-primary am-text-lg">人员管理</strong> /
+
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="am-tabs am-margin" data-am-tabs>
+            <ul class="am-tabs-nav am-nav am-nav-tabs">
+                <li class="am-active"><a href="#tab1" style="font-size: 2rem">添加人员</a></li>
+
+            </ul>
+
+            <div class="am-tabs-bd">
+
+                <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">姓名</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <input id="name" name="name" type="text" value="" style="width: 16rem;font-size: 2rem;">
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">身份证号</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <input id="identity" name="identity" onchange="changeByIdentity()" type="text" value="" style="width: 20rem;height: 3rem;font-size: 1.8rem;">
+                        </div>
+                    </div>
+
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">电话号码</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <input id="phone" name="phone" type="text" value="" style="width: 16rem;font-size: 2rem">
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">现住址</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <textarea id="address" name="address" style="width: 20rem;height: 6rem;font-size: 2rem"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">性别</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <label class="myLabel-mobile">
+                                <select id="sex" class="mySelect" style="width: 16rem;">
+                                    <option>男</option>
+                                    <option>女</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">身高</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <label class="myLabel-mobile">
+                                <select id="height" class="mySelect" style="width: 16rem;">
+                                    <option id="h1">1.7m以下</option>
+                                    <option id="h2">1.7m-1.8m</option>
+                                    <option id="h3">1.8m以上</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">口音</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <label class="myLabel-mobile">
+                                <select id="accent" class="mySelect" style="width: 16rem;">
+                                    <option>北方口音</option>
+                                    <option>苏北</option>
+                                    <option>安徽</option>
+                                    <option>南方口音</option>
+                                    <option>其他</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">体型</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <label class="myLabel-mobile">
+                                <select id="bodyType" class="mySelect" style="width: 16rem;">
+                                    <option>胖</option>
+                                    <option>中等</option>
+                                    <option>瘦</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">活动区域</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <label class="myLabel-mobile">
+                                <select id="area" class="mySelect" style="width: 16rem;">
+                                    <option>机场大巴</option>
+                                    <option>东站区</option>
+                                    <option>东拐角</option>
+                                    <option>西拐角</option>
+                                    <option>西站区</option>
+                                    <option>曙光</option>
+                                    <option>黄家圩</option>
+                                    <option>军人接待站</option>
+                                    <option>西片区</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">分类</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <label class="myLabel-mobile">
+                                <select id="type" class="mySelect" style="width: 16rem;">
+                                    <option>长途车</option>
+                                    <option>旅馆</option>
+                                    <option>出租车</option>
+                                    <option>机场大巴</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">车辆种类</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <label class="myLabel-mobile">
+                                <select id="vehicleType" class="mySelect" style="width: 16rem;">
+                                    <option>出租车</option>
+                                    <option>电动车</option>
+                                    <option>摩托车</option>
+                                    <option>其他</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">车辆牌证</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <input id="vehicleLicense" name="vehicleLicense" type="text" value="" style="width: 12rem;height: 3rem;font-size: 2rem">
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">照片（人员、车辆、身份证）</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <div id="imageList">
+                            </div>
+                            <p><img style="width: 5rem;height: 5rem" src="image/add.png" onclick="fileSelect();"></p>
+                            <form id="upload-file-form" enctype="multipart/form-data" style="width:auto;">
+                                <input type="file" name="image" id="image" onchange="fileSelected();" style="display:none;">
+                            </form>
+                            <span><button onclick="clearImage()">重新上传</button></span>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+            <div class="am-margin">
+                <button onclick="addUser()" type="button" class="am-btn am-btn-primary am-btn-xs" style="background-color: #22cc77; margin-left: 20%;margin-bottom: 0%;">确定</button>
+                <button onclick="backTo()" type="button" class="am-btn am-btn-primary am-btn-xs" style="background-color: #22cc77; margin-left: 20%;margin-bottom: 0%;">返回首页</button>
+            </div>
+
+
+        </div>
+
+        <footer class="admin-content-footer">
+
+            <p class="am-padding-left"></p>
+        </footer>
+    </div>
+    <!-- content end -->
+
+</div>
+
+
+
+<footer>
+    <hr>
+    <p class="am-padding-left"></p>
+</footer>
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/mobile-add.js"></script>
+<script type="text/javascript">
+
+    $("#sex").change(function(){
+        var obj2= document.getElementById("sex"); //定位id
+        var index2 = obj2.selectedIndex; // 选中索引
+        var b = obj2.options[index2].text; // 选中文本
+        if(b=="男"){
+            document.getElementById("h1").innerText="1.7m以下";
+            document.getElementById("h2").innerText="1.7m-1.8m";
+            document.getElementById("h3").innerText="1.8m以上";
+        }
+        else{
+            document.getElementById("h1").innerText="1.55m以下";
+            document.getElementById("h2").innerText="1.55m-1.65m";
+            document.getElementById("h3").innerText="1.65m以上";
+        }
+    })
+
+
+</script>
+<script>
+
+    function getout(){
+        var storage = window.localStorage;
+        storage["has"]="no";
+    }
+    var storage = window.localStorage;
+    if(storage["has"]!="yes"){
+        window.location.href="login.html";
+    }
+
+    if(storage['adminLimits']=="社会人员"){
+        $("#l1").hide();
+        $("#l2").hide();
+    }
+    else if(storage['adminLimits']=="民警"){
+        $("#l2").hide();
+    }
+</script>
+</body>
+</html>

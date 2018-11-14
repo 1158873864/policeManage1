@@ -16,6 +16,9 @@ public class Staff {
     @Column(name = "identity")
     private String identity;
 
+    @Column(name = "phone")
+    private String phone;
+
     @Column(name = "address")
     private String address;
 
@@ -44,12 +47,17 @@ public class Staff {
     private String vehicleLicense;
 
     @Column
+    private long timestamp;
+
+    @Column
     @ElementCollection(targetClass = String.class)
     private List<String> images;
 
-    public Staff(String name, String identity, String address, String sex, String height, String accent, String bodyType, String area, String type, String vehicleType, String vehicleLicense, List<String> images) {
+    public Staff(){};
+    public Staff(String name, String identity, String phone, String address, String sex, String height, String accent, String bodyType, String area, String type, String vehicleType, String vehicleLicense, List<String> images,long timestamp) {
         this.name = name;
         this.identity = identity;
+        this.phone=phone;
         this.address = address;
         this.sex = sex;
         this.height = height;
@@ -60,6 +68,7 @@ public class Staff {
         this.vehicleType = vehicleType;
         this.vehicleLicense = vehicleLicense;
         this.images = images;
+        this.timestamp=timestamp;
     }
 
 
@@ -85,6 +94,14 @@ public class Staff {
 
     public void setIdentity(String identity) {
         this.identity = identity;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getAddress() {
@@ -165,5 +182,13 @@ public class Staff {
 
     public void setImages(List<String> images) {
         this.images = images;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 }
