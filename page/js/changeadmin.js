@@ -29,6 +29,10 @@ function fileSelected() {
     });
 
 }
+
+function backTo(){
+    window.location.href="admin-list.html";
+}
 $.ajax(
     {
         url: url+"/getAdmin",

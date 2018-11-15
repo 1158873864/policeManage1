@@ -25,7 +25,7 @@ position: fixed;
 height: 100%;
 overflow:auto;
 margin: 0 auto;">
-<header class="am-topbar am-topbar-inverse admin-header">
+<header class="am-topbar am-topbar-inverse admin-header" style="background: rgba(0,70,255,0.5);">
     <div class="am-topbar-brand">
         <img src="image/logo.jpg" class=" radius-circle rotate-hover" height="40" alt="" style="margin-top: -2%;"/>
         <small> 韶山路火车站地区治安采集系统</small>
@@ -73,8 +73,8 @@ margin: 0 auto;">
 
 
             <div class="am-tabs am-margin" data-am-tabs>
-                <ul class="am-tabs-nav am-nav am-nav-tabs">
-                    <li class="am-active"><a href="#tab1">单独检索</a></li>
+                <ul class="am-tabs-nav am-nav am-nav-tabs" >
+                    <li class="am-active" ><a href="#tab1" style="background: rgba(0,0,0,0);">单独检索</a></li>
 
                 </ul>
                 <div class="am-tabs-bd">
@@ -109,7 +109,7 @@ margin: 0 auto;">
             </div>
             <div class="am-tabs am-margin" data-am-tabs>
                 <ul class="am-tabs-nav am-nav am-nav-tabs">
-                    <li class="am-active"><a href="#tab2">组合检索</a></li>
+                    <li class="am-active"><a href="#tab2" style="background: rgba(0,0,0,0);">组合检索</a></li>
 
                 </ul>
                 <div class="am-tabs-bd">
@@ -210,7 +210,8 @@ margin: 0 auto;">
                     </div>
                 </div>
                 <div class="am-tabs am-margin" data-am-tabs>
-                    <button onclick="showAll()" class="class=ui-btn ui-btn-primary" style="width: 7rem">展示全部</button>
+                    <button onclick="showAll()" class="class=ui-btn ui-btn-primary" style="width: 7rem;left: 1rem;position: relative;">展示全部</button>
+                    <button onclick="backTo()" class="class=ui-btn ui-btn-primary" style="width: 7rem;left: 5rem;position:relative;">返回首页</button>
                 </div>
             </div>
 

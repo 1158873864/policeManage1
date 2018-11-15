@@ -83,7 +83,7 @@ function clearImage(){
 }
 
 function backTo(){
-    window.location.href="staff.html";
+    window.location.href="mobile-staff.html";
 }
 
 function addUser(){

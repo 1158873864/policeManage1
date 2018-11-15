@@ -28,12 +28,11 @@ margin: 0 auto;">
   以获得更好的体验！</p>
 <![endif]-->
 
-<header class="am-topbar am-topbar-inverse admin-header">
+<header class="am-topbar am-topbar-inverse admin-header" style="background: rgba(0,70,255,0.5);">
     <div class="am-topbar-brand">
         <img src="image/logo.jpg" class=" radius-circle rotate-hover" height="40" alt="" style="margin-top: -2%;"/>
         <small> 韶山路火车站地区治安采集系统</small>
 
-        </button>
     </div>
 
     <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only"
@@ -75,15 +74,21 @@ margin: 0 auto;">
 
   <section id="table">
         <h1 class="title">人员列表</h1>
-        <div class="demo-item">
-          <button type="button">   <a href="admin-add.html"><span class="am-icon-plus"></span> 添加用户</a></button>
+
+            <span>
+                <button type="button" class="am-btn am-btn-primary am-btn-xs" style="background-color: #2DB2FF; margin-left: 3%;margin-bottom: 0%;">   <a href="admin-add.html" style="color:white"><span class="am-icon-plus"></span> 添加用户</a></button>
+                <button onclick="backTo()" type="button" class="am-btn am-btn-primary am-btn-xs" style="background-color: #2DB2FF; margin-left: 3%;margin-bottom: 0%;">返回首页</button>
+            </span>
+
             <br>
-              <input id="con" type="text">
-              <span >
-            <button class="class=ui-btn ui-btn-primary" type="button" onclick="search()" style="width: 9rem">名称搜索</button>
+      <br>
+              <input id="con" style="width:20rem;height: 3rem;font-size: 2rem;left: 2%;position:relative " type="text">
+
+            <button class="class=ui-btn ui-btn-primary" type="button" onclick="search()" style="width: 9rem;left:2%;position: relative;">名称搜索</button>
                   <br>
+
                   <br>
-          </span>
+
 
 
 
@@ -168,6 +173,8 @@ margin: 0 auto;">
                 <li><a id="page4" href="#" onclick="changepage(4)">4</a></li>
                 <li><a id="page5" href="#" onclick="changepage(5)">5</a></li>
                 <li><a id="pageplus" href="#" onclick="changegroup(2)">»</a></li>
+
+
               </ul>
           <hr />
 

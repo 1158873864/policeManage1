@@ -1,4 +1,7 @@
 var imageList="";
+function backTo(){
+    window.location.href="index.html";
+}
 function fileSelected() {
     var fd = new FormData($("#upload-file-form")[0]);
     var url = getUrl();

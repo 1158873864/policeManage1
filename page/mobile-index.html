@@ -26,7 +26,7 @@ height: 100%;
 overflow:auto;
 margin: 0 auto;">
 
-<header class="am-topbar am-topbar-inverse admin-header">
+<header class="am-topbar am-topbar-inverse admin-header" style="background: rgba(0,70,255,0.5);">
     <div class="am-topbar-brand">
         <img src="image/logo.jpg" class=" radius-circle rotate-hover" height="40" alt="" style="margin-top: -2%;"/>
         <small> 韶山路火车站地区治安采集系统</small>
@@ -72,24 +72,22 @@ margin: 0 auto;">
         </div>
     </div>
     <div>
-    <img src="image/index.png" style="width: 100%;height: 85%;top:18%;position: fixed;">
-    <div class="ui-btn-wrap ui-btn-wrap-middle" style="alignment: center;top:70%;left: 20%;position: fixed">
-        <button onclick="gotoAdd()" class="ui-btn-lg-nowhole ui-btn-primary">
+        <img src="image/index.jpeg" style="width: 100%;height:83%;top:17%;position: absolute;">
+    <img src="image/徽章.png" style="width: 6rem;height:6rem;top:18%;left: 0%;position: absolute;">
+            <img src="image/字体.png" style="width: 4rem;height:10rem;top:18%;left: 90%;position: absolute;">
+
+        <button onclick="gotoAdd()" class="ui-btn-lg-nowhole ui-btn-primary" style="alignment: center;top:70%;left: 50%;position: absolute;width: 20rem;margin-left:-10rem;">
             采集信息
         </button>
-    </div>
 
-    <div class="ui-btn-wrap ui-btn-wrap-middle" style="alignment: center;top:80%;left: 20%;position: fixed">
-        <button id="l3" onclick="gotoList()" class="ui-btn-lg-nowhole ui-btn-primary">
+        <button id="l3" onclick="gotoList()" class="ui-btn-lg-nowhole ui-btn-primary" style="alignment: center;top:80%;left: 50%;position: absolute;width: 20rem;margin-left:-10rem;">
             检索人员信息
         </button>
-    </div>
 
-    <div class="ui-btn-wrap ui-btn-wrap-middle" style="alignment: center;top:90%;left: 20%;position: fixed">
-        <button id="l4" onclick="gotoUser()" class="ui-btn-lg-nowhole ui-btn-primary">
+        <button id="l4" onclick="gotoUser()" class="ui-btn-lg-nowhole ui-btn-primary" style="alignment: center;top:90%;left: 50%;position: absolute;width: 20rem;margin-left:-10rem;">
             管理用户
         </button>
-    </div>
+
     </div>
 </section>
 

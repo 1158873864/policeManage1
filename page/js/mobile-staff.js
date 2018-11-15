@@ -223,6 +223,10 @@ function changepage(page){
 
 }
 
+function backTo(){
+    window.location.href="index.html";
+}
+
 function searchAll() {
     list=new Array();
     var name=$("#name").val();
