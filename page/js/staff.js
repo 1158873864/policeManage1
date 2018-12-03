@@ -16,10 +16,7 @@ var compare = function (obj1, obj2) {
 }
 
 
-if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-    window.location.href="mobile-staff.html";
-}
-else{
+
 
     $("#your-alert-1").hide();
     $("#your-alert-2").hide();
@@ -55,7 +52,7 @@ else{
             traditional: true,
         }
     )
-}
+
 
 
 function setthisquestion(n){
@@ -77,7 +74,7 @@ function deletequestion(n){
                 async: false,
                 success: function (data) {
                     alert("删除成功");
-                    window.location.href = "index.html";
+                    window.location.href = "staff.html";
                 },
                 error: function (xhr) {
                     alert('动态页有问题噶！\n\n' + xhr.responseText);

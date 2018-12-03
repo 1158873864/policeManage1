@@ -43,7 +43,7 @@ margin: 0 auto;">
             <li class="am-dropdown" data-am-dropdown>
 
                 <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                    <span class="am-icon-users"></span> 菜单 <span class="am-icon-caret-down"></span>
+                    <span class="am-icon-users"></span> 快捷菜单 <span class="am-icon-caret-down"></span>
                 </a>
                 <ul class="am-dropdown-content">
                     <li><a href="me.html"><span class="am-icon-user"></span> 我的信息</a></li>
@@ -79,10 +79,7 @@ margin: 0 auto;">
         <hr>
 
         <div class="am-tabs am-margin" data-am-tabs>
-            <ul class="am-tabs-nav am-nav am-nav-tabs">
-                <li class="am-active"><a href="#tab1" style="font-size: 2rem;background: rgba(0,0,0,0);">添加人员</a></li>
 
-            </ul>
 
             <div class="am-tabs-bd">
 
@@ -224,15 +221,112 @@ margin: 0 auto;">
                     </div>
 
                     <div class="am-g am-margin-top">
-                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">照片（人员、车辆、身份证）</div>
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">全身照片</div>
                         <div class="am-u-sm-8 am-u-md-10">
-                            <div id="imageList">
+                            <div id="imageList1">
+
                             </div>
-                            <p><img style="width: 5rem;height: 5rem" src="image/add.png" onclick="fileSelect();"></p>
-                            <form id="upload-file-form" enctype="multipart/form-data" style="width:auto;">
-                                <input type="file" name="image" id="image" onchange="fileSelected();" style="display:none;">
-                            </form>
-                            <span><button onclick="clearImage()">重新上传</button></span>
+
+                            <div style="width: 10rem;height: 10rem">
+                                <img src="image/全身.jpeg" style="height: 9.8rem;width: 9.8rem;position: fixed">
+                                <div style="position: fixed;height: 10rem;width:10rem;overflow: auto;margin: 0 auto;background: rgba(255,255,255,0.85);">
+                                    <p onclick="fileSelect(1);">
+                                        <img style="width: 4rem;height: 3.5rem;left: 3rem;top:2rem;position:relative;" src="image/add.png" >
+                                    <div style="font-size: 1.2rem;left: 0.5rem;color: #0e93d7;top: 1rem;position:relative;">上传/拍摄全身照片</div>
+                                    </p>
+                                    <form id="upload-file-form1" enctype="multipart/form-data" style="width:auto;">
+                                        <input type="file" name="image" id="image1" onchange="fileSelected(1);" style="display:none;">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">半身照片</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <div id="imageList2">
+
+                            </div>
+
+                            <div style="width: 10rem;height: 10rem">
+                                <img src="image/半身.jpg" style="height: 9.8rem;width: 9.8rem;position: fixed">
+                                <div style="position: fixed;height: 10rem;width:10rem;overflow: auto;margin: 0 auto;background: rgba(255,255,255,0.85);">
+                                    <p onclick="fileSelect(2);">
+                                        <img style="width: 4rem;height: 3.5rem;left: 3rem;top:2rem;position:relative;" src="image/add.png" >
+                                    <div style="font-size: 1.2rem;left: 0.5rem;color: #0e93d7;top: 1rem;position:relative;">上传/拍摄半身照片</div>
+                                    </p>
+                                    <form id="upload-file-form2" enctype="multipart/form-data" style="width:auto;">
+                                        <input type="file" name="image" id="image2" onchange="fileSelected(2);" style="display:none;">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">身份证照片</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <div id="imageList3">
+
+                            </div>
+
+                            <div style="width: 10rem;height: 10rem">
+                                <img src="image/身份证.jpeg" style="height: 9.8rem;width: 9.8rem;position: fixed">
+                                <div style="position: fixed;height:10rem;width:10rem;overflow: auto;margin: 0 auto;background: rgba(255,255,255,0.85);">
+                                    <p onclick="fileSelect(3);">
+                                        <img style="width: 4rem;height: 3.5rem;left: 3rem;top:2rem;position:relative;" src="image/add.png" >
+                                    <div style="font-size: 1.2rem;left: 0.5rem;color: #0e93d7;top: 1rem;position:relative;">上传/拍摄身份证</div>
+                                    </p>
+                                    <form id="upload-file-form3" enctype="multipart/form-data" style="width:auto;">
+                                        <input type="file" name="image" id="image3" onchange="fileSelected(3);" style="display:none;">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">车辆照片</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <div id="imageList4">
+
+                            </div>
+
+                            <div style="width: 10rem;height: 10rem">
+                                <img src="image/车辆.jpg" style="height: 9.8rem;width: 9.8rem;position: fixed">
+                                <div style="position: fixed;height: 10rem;width:10rem;overflow: auto;margin: 0 auto;background: rgba(255,255,255,0.85);">
+                                    <p onclick="fileSelect(4);">
+                                        <img style="width: 4rem;height: 3.5rem;left: 3rem;top:2rem;position:relative;" src="image/add.png" >
+                                    <div style="font-size: 1.2rem;left: 0.5rem;color: #0e93d7;top: 1rem;position:relative;">上传/拍摄车辆照片</div>
+                                    </p>
+                                    <form id="upload-file-form4" enctype="multipart/form-data" style="width:auto;">
+                                        <input type="file" name="image" id="image4" onchange="fileSelected(4);" style="display:none;">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                        <div class="am-u-sm-4 am-u-md-2 am-text-right" style="font-size: 2rem">随身物品照片</div>
+                        <div class="am-u-sm-8 am-u-md-10">
+                            <div id="imageList5">
+
+                            </div>
+
+                            <div style="width: 10rem;height: 10rem">
+                                <img src="image/随身物品.png" style="height: 9.8rem;width: 9.8rem;position: fixed">
+                                <div style="position: fixed;height: 10rem;width:10rem;overflow: auto;margin: 0 auto;background: rgba(255,255,255,0.85);">
+                                    <p onclick="fileSelect(5);">
+                                        <img style="width: 4rem;height: 3.5rem;left: 3rem;top:2rem;position:relative;" src="image/add.png" >
+                                    <div style="font-size: 1.2rem;left: 0.5rem;color: #0e93d7;top: 1rem;position:relative;">上传/拍摄随身物品</div>
+                                    </p>
+                                    <form id="upload-file-form5" enctype="multipart/form-data" style="width:auto;">
+                                        <input type="file" name="image" id="image5" onchange="fileSelected(5);" style="display:none;">
+                                    </form>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

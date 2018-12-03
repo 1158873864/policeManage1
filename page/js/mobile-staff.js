@@ -73,7 +73,7 @@ function deletequestion(n){
                 async: false,
                 success: function (data) {
                     alert("删除成功");
-                    window.location.href = "index.html";
+                    window.location.href = "staff.html";
                 },
                 error: function (xhr) {
                     alert('动态页有问题噶！\n\n' + xhr.responseText);

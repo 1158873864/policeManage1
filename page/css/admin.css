@@ -20,11 +20,13 @@ html,body{
 }
 
 .mui-index{
-  background: url(../image/index.jpeg) bottom center no-repeat #efeff4 ;
+  background: url(../image/indexbackground.jpg) bottom center no-repeat #efeff4 ;
   background-size: 100% 100%;
   width: 100%;
   height: 100%;
 }
+
+.bor{border:0.1rem dashed #d1d1d1;width:17rem;height:10rem;margin-top:10px}
 
 
 ul {

@@ -108,11 +108,15 @@ public class StaffController {
             @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String"),
             @ApiImplicitParam(name = "vehicleType", value = "车辆类型", required = true, dataType = "String"),
             @ApiImplicitParam(name = "vehicleLicense", value = "车辆牌证", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "images", value = "照片", required = true, dataType = "List<String>")
+            @ApiImplicitParam(name = "wholeImages", value = "照片", required = true, dataType = "List<String>"),
+            @ApiImplicitParam(name = "halfImages", value = "照片", required = true, dataType = "List<String>"),
+            @ApiImplicitParam(name = "identityImages", value = "照片", required = true, dataType = "List<String>"),
+            @ApiImplicitParam(name = "vehicleImages", value = "照片", required = true, dataType = "List<String>"),
+            @ApiImplicitParam(name = "otherImages", value = "照片", required = true, dataType = "List<String>")
     })
     @RequestMapping(value = "/addStaff", method = RequestMethod.GET)
-    public InfoResponse addStaff(@RequestParam("name") String name, @RequestParam("identity") String identity,@RequestParam("phone") String phone,  @RequestParam("address") String address, @RequestParam("sex") String sex, @RequestParam("height") String height, @RequestParam("accent") String accent, @RequestParam("bodyType") String bodyType, @RequestParam("area") String area, @RequestParam("type") String type, @RequestParam("vehicleType") String vehicleType, @RequestParam("vehicleLicense") String vehicleLicense, @RequestParam("images") List<String> images) {
-        return staffBlService.addStaff(name,identity,phone,address,sex,height,accent,bodyType,area,type,vehicleType,vehicleLicense,images);
+    public InfoResponse addStaff(@RequestParam("name") String name, @RequestParam("identity") String identity,@RequestParam("phone") String phone,  @RequestParam("address") String address, @RequestParam("sex") String sex, @RequestParam("height") String height, @RequestParam("accent") String accent, @RequestParam("bodyType") String bodyType, @RequestParam("area") String area, @RequestParam("type") String type, @RequestParam("vehicleType") String vehicleType, @RequestParam("vehicleLicense") String vehicleLicense, @RequestParam("wholeImages") List<String> wholeImages, @RequestParam("halfImages") List<String> halfImages, @RequestParam("identityImages") List<String> identityImages, @RequestParam("vehicleImages") List<String> vehicleImages, @RequestParam("otherImages") List<String> otherImages) {
+        return staffBlService.addStaff(name,identity,phone,address,sex,height,accent,bodyType,area,type,vehicleType,vehicleLicense,wholeImages,halfImages,identityImages,vehicleImages,otherImages);
     }
 
     @ApiOperation(value = "修改人员", notes = "修改人员")
@@ -130,11 +134,15 @@ public class StaffController {
             @ApiImplicitParam(name = "type", value = "类型", required = true, dataType = "String"),
             @ApiImplicitParam(name = "vehicleType", value = "车辆类型", required = true, dataType = "String"),
             @ApiImplicitParam(name = "vehicleLicense", value = "车辆牌证", required = true, dataType = "String"),
-            @ApiImplicitParam(name = "images", value = "照片", required = true, dataType = "List<String>")
+            @ApiImplicitParam(name = "wholeImages", value = "照片", required = true, dataType = "List<String>"),
+            @ApiImplicitParam(name = "halfImages", value = "照片", required = true, dataType = "List<String>"),
+            @ApiImplicitParam(name = "identityImages", value = "照片", required = true, dataType = "List<String>"),
+            @ApiImplicitParam(name = "vehicleImages", value = "照片", required = true, dataType = "List<String>"),
+            @ApiImplicitParam(name = "otherImages", value = "照片", required = true, dataType = "List<String>")
     })
     @RequestMapping(value = "/updateStaff", method = RequestMethod.GET)
-    public InfoResponse updateStaff(@RequestParam("id")int id,@RequestParam("name") String name, @RequestParam("identity") String identity,@RequestParam("phone") String phone,  @RequestParam("address") String address, @RequestParam("sex") String sex, @RequestParam("height") String height, @RequestParam("accent") String accent, @RequestParam("bodyType") String bodyType, @RequestParam("area") String area, @RequestParam("type") String type, @RequestParam("vehicleType") String vehicleType, @RequestParam("vehicleLicense") String vehicleLicense, @RequestParam("images") List<String> images) throws NotExistException {
-        return staffBlService.updateStaff(id,name,identity,phone,address,sex,height,accent,bodyType,area,type,vehicleType,vehicleLicense,images);
+    public InfoResponse updateStaff(@RequestParam("id")int id,@RequestParam("name") String name, @RequestParam("identity") String identity,@RequestParam("phone") String phone,  @RequestParam("address") String address, @RequestParam("sex") String sex, @RequestParam("height") String height, @RequestParam("accent") String accent, @RequestParam("bodyType") String bodyType, @RequestParam("area") String area, @RequestParam("type") String type, @RequestParam("vehicleType") String vehicleType, @RequestParam("vehicleLicense") String vehicleLicense, @RequestParam("wholeImages") List<String> wholeImages, @RequestParam("halfImages") List<String> halfImages, @RequestParam("identityImages") List<String> identityImages, @RequestParam("vehicleImages") List<String> vehicleImages, @RequestParam("otherImages") List<String> otherImages) throws NotExistException {
+        return staffBlService.updateStaff(id,name,identity,phone,address,sex,height,accent,bodyType,area,type,vehicleType,vehicleLicense,wholeImages,halfImages,identityImages,vehicleImages,otherImages);
     }
 
     @ApiOperation(value = "删除人员", notes = "删除人员")

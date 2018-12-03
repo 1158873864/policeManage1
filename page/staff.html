@@ -16,7 +16,11 @@
     <link rel="stylesheet" href="css/admin.css">
 
 
-
+<script>
+    if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+        window.location.href="mobile-staff.html";
+    }
+</script>
 </head>
 
 <body ontouchstart class="mui-content" style="
@@ -43,7 +47,7 @@ margin: 0 auto;">
             <li class="am-dropdown" data-am-dropdown>
 
                 <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                    <span class="am-icon-users"></span> 菜单 <span class="am-icon-caret-down"></span>
+                    <span class="am-icon-users"></span> 快捷菜单 <span class="am-icon-caret-down"></span>
                 </a>
                 <ul class="am-dropdown-content">
                     <li><a href="me.html"><span class="am-icon-user"></span> 我的信息</a></li>
@@ -338,6 +342,8 @@ margin: 0 auto;">
 <script src="js/app.js"></script>
 <script src="js/staff.js"></script>
 <script type="text/javascript">
+
+
     $(function () {
         $(".am-list .am-cf").click(function () {
             $(this).next().slideToggle(200);

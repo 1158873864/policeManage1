@@ -1,11 +1,17 @@
 var url = getUrl();
-if(/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-    window.location.href="mobile-add.html";
-}
-var imageList=new Array();
 
-function fileSelected() {
-    var fd = new FormData($("#upload-file-form")[0]);
+
+var imageList=new Array(new Array(),new Array(),new Array(),new Array(),new Array(),new Array());
+var idList=new Array(new Array(),new Array(),new Array(),new Array(),new Array(),new Array());
+function guid() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+        return v.toString(16);
+    });
+}
+
+function fileSelected(order) {
+    var fd = new FormData($("#upload-file-form"+order)[0]);
     var url = getUrl();
     $.ajax({
         url: url + "/upload",
@@ -17,8 +23,13 @@ function fileSelected() {
         cache: false,
         async: false,
         success: function (data) {
-            imageList.push(data);
-            $("#imageList").append("<img src='"+getImagePath()+imageList[imageList.length-1]+"' style=\"width: 10rem;height: 10rem;\">")
+            imageList[order].push(data);
+            var id=guid();
+             idList[order].push(id);
+            $("#imageList"+order).append("<div id='"+id+"'>\n" +
+                "                                    <img src='"+getImagePath()+data+"' style=\"width: 10rem;height: 10rem\">\n" +
+                "                                    <span><button onclick=\"delImage('"+id+"','"+order+"')\" style=\"color: red;\"><-删除</button></span>\n" +
+                "                                </div>");
         },
         error: function (xhr) {
             alert("上传图片失败！")
@@ -29,13 +40,29 @@ function fileSelected() {
 
 }
 
-function fileSelect() {
-    document.getElementById("image").click();
+function delImage(x,order){
+    $("#"+x).hide();
+    var index=idList[order].indexOf(x);
+    if (index > -1) {
+        idList[order].splice(index,1);
+        imageList[order].splice(index, 1);
+    }
+}
+
+function fileSelect(order) {
+    document.getElementById("image"+order).click();
 }
 
 function clearImage(){
-    imageList.length=0;
-    document.getElementById("imageList").innerText="";
+
+    document.getElementById("imageList1").innerText="";
+    document.getElementById("imageList2").innerText="";
+    document.getElementById("imageList3").innerText="";
+    document.getElementById("imageList4").innerText="";
+    document.getElementById("imageList5").innerText="";
+    imageList=new Array(new Array(),new Array(),new Array(),new Array(),new Array(),new Array());
+    idList=new Array(new Array(),new Array(),new Array(),new Array(),new Array(),new Array());
+
 }
 
 function backTo(){
@@ -77,12 +104,57 @@ function changeByIdentity() {
                         document.getElementById("type").value = data.staff.type;
                         document.getElementById("vehicleType").value = data.staff.vehicleType;
                         document.getElementById("vehicleLicense").value = data.staff.vehicleLicense;
-
-                        for (var i = 0; i < data.staff.images.length; i++) {
-                            clearImage();
-                            imageList.push(data.staff.images[i]);
-                            $("#imageList").append("<img src='" + getImagePath() + data.staff.images[i] + "' style=\"width: 10rem;height: 10rem;\">")
+                        clearImage();
+                        for (var i = 0; i < data.staff.wholeImages.length; i++) {
+                            imageList[1].push(data.staff.wholeImages[i]);
+                            var id=guid();
+                            idList[1].push(id);
+                            $("#imageList1").append("<div id='"+id+"'>\n" +
+                                "                                    <img src='"+getImagePath()+data.staff.wholeImages[i]+"' style=\"width: 10rem;height: 10rem\">\n" +
+                                "                                    <span><button onclick=\"delImage('"+id+"',1)\" style=\"color: red;\"><-删除</button></span>\n" +
+                                "                                </div>");
                         }
+
+                        for (var i = 0; i < data.staff.halfImages.length; i++) {
+                            imageList[2].push(data.staff.halfImages[i]);
+                            var id=guid();
+                            idList[2].push(id);
+                            $("#imageList2").append("<div id='"+id+"'>\n" +
+                                "                                    <img src='"+getImagePath()+data.staff.halfImages[i]+"' style=\"width: 10rem;height: 10rem\">\n" +
+                                "                                    <span><button onclick=\"delImage('"+id+"',2)\" style=\"color: red;\"><-删除</button></span>\n" +
+                                "                                </div>");
+                        }
+
+                        for (var i = 0; i < data.staff.identityImages.length; i++) {
+                            imageList[3].push(data.staff.identityImages[i]);
+                            var id=guid();
+                            idList[3].push(id);
+                            $("#imageList3").append("<div id='"+id+"'>\n" +
+                                "                                    <img src='"+getImagePath()+data.staff.identityImages[i]+"' style=\"width: 10rem;height: 10rem\">\n" +
+                                "                                    <span><button onclick=\"delImage('"+id+"',3)\" style=\"color: red;\"><-删除</button></span>\n" +
+                                "                                </div>");
+                        }
+
+                        for (var i = 0; i < data.staff.vehicleImages.length; i++) {
+                            imageList[4].push(data.staff.vehicleImages[i]);
+                            var id=guid();
+                            idList[4].push(id);
+                            $("#imageList4").append("<div id='"+id+"'>\n" +
+                                "                                    <img src='"+getImagePath()+data.staff.vehicleImages[i]+"' style=\"width: 10rem;height: 10rem\">\n" +
+                                "                                    <span><button onclick=\"delImage('"+id+"',4)\" style=\"color: red;\"><-删除</button></span>\n" +
+                                "                                </div>");
+                        }
+
+                        for (var i = 0; i < data.staff.otherImages.length; i++) {
+                            imageList[5].push(data.staff.otherImages[i]);
+                            var id=guid();
+                            idList[5].push(id);
+                            $("#imageList5").append("<div id='"+id+"'>\n" +
+                                "                                    <img src='"+getImagePath()+data.staff.otherImages[i]+"' style=\"width: 10rem;height: 10rem\">\n" +
+                                "                                    <span><button onclick=\"delImage('"+id+"',5)\" style=\"color: red;\"><-删除</button></span>\n" +
+                                "                                </div>");
+                        }
+
                     }
                 },
                 error: function (xhr) {
@@ -106,7 +178,7 @@ function addUser(){
     var address=$("#address").val();
     var vehicleLicense=$("#vehicleLicense").val();
 
-    if(name==""||identity==""||phone==""||address==""||vehicleLicense==""){
+    if(name==""||identity==""||phone==""||address==""){
         alert("请填写除图片外的其他所有信息！");
     }
     else {
@@ -138,9 +210,23 @@ function addUser(){
         var index7 = obj7.selectedIndex; // 选中索引
         var vehicleType = obj7.options[index7].text; // 选中文本
         if(identity.length==18) {
-            if (imageList.length == 0) {
-                imageList.push("");
-                var r = confirm("人员身份证和车辆照片尚未上传，确定提交么？");
+            if (imageList[1].length == 0||imageList[2].length == 0||imageList[3].length == 0||imageList[4].length == 0) {
+                if(imageList[1].length == 0){
+                    imageList[1].push("");
+                }
+                if(imageList[2].length == 0){
+                    imageList[2].push("");
+                }
+                if(imageList[3].length == 0){
+                    imageList[3].push("");
+                }
+                if(imageList[4].length == 0){
+                    imageList[4].push("");
+                }
+                if(imageList[5].length == 0){
+                    imageList[5].push("");
+                }
+                var r = confirm("有重要照片尚未上传，确定提交么？");
                 if (r) {
                     $.ajax(
                         {
@@ -158,11 +244,15 @@ function addUser(){
                                 type: type,
                                 vehicleType: vehicleType,
                                 vehicleLicense: vehicleLicense,
-                                images: imageList
+                                wholeImages:imageList[1],
+                                halfImages:imageList[2],
+                                identityImages:imageList[3],
+                                vehicleImages:imageList[4],
+                                otherImages:imageList[5]
                             },
                             async: false,
                             success: function (data) {
-                                alert("添加成功");
+                                alert("保存成功");
                                 window.location.href = "index.html";
                             },
                             error: function (xhr) {
@@ -190,11 +280,15 @@ function addUser(){
                             type: type,
                             vehicleType: vehicleType,
                             vehicleLicense: vehicleLicense,
-                            images: imageList
+                            wholeImages:imageList[1],
+                            halfImages:imageList[2],
+                            identityImages:imageList[3],
+                            vehicleImages:imageList[4],
+                            otherImages:imageList[5]
                         },
                         async: false,
                         success: function (data) {
-                            alert("添加成功");
+                            alert("保存成功");
                             window.location.href = "index.html";
                         },
                         error: function (xhr) {

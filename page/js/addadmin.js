@@ -1,7 +1,5 @@
 var imageList="";
-function backTo(){
-    window.location.href="index.html";
-}
+
 function fileSelected() {
     var fd = new FormData($("#upload-file-form")[0]);
     var url = getUrl();
@@ -28,7 +26,10 @@ function fileSelected() {
 
 }
 
-<mce:script language="<a href="http://lib.csdn.net/base/javascript" class='replace_word' title="JavaScript知识库" target='_blank' style='color:#df3434; font-weight:bold;'>JavaScript</a>" type="text/javascript"><!--
+function backTo(){
+    window.location.href="index.html";
+}
+
 
     /**
      * 对Date的扩展，将 Date 转化为指定格式的String

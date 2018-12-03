@@ -26,7 +26,7 @@ public class StaffBlServiceImpl implements StaffBlService{
     }
 
     @Override
-    public InfoResponse addStaff(String name, String identity, String phone,String address, String sex, String height, String accent, String bodyType, String area, String type, String vehicleType, String vehicleLicense, List<String> images) {
+    public InfoResponse addStaff(String name, String identity, String phone,String address, String sex, String height, String accent, String bodyType, String area, String type, String vehicleType, String vehicleLicense, List<String> wholeImages, List<String> halfImages, List<String> identityImages, List<String> vehicleImages, List<String> otherImages) {
         Date date=new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         long timestamp=0;
@@ -35,12 +35,12 @@ public class StaffBlServiceImpl implements StaffBlService{
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        staffDataService.addStaff(new Staff(name,identity,phone,address,sex,height,accent,bodyType,area,type,vehicleType,vehicleLicense,images,timestamp));
+        staffDataService.addStaff(new Staff(name,identity,phone,address,sex,height,accent,bodyType,area,type,vehicleType,vehicleLicense,wholeImages,halfImages,identityImages,vehicleImages,otherImages,timestamp));
         return new InfoResponse();
     }
 
     @Override
-    public InfoResponse updateStaff(int id, String name, String identity, String phone,String address, String sex, String height, String accent, String bodyType, String area, String type, String vehicleType, String vehicleLicense, List<String> images) throws NotExistException {
+    public InfoResponse updateStaff(int id, String name, String identity, String phone,String address, String sex, String height, String accent, String bodyType, String area, String type, String vehicleType, String vehicleLicense, List<String> wholeImages, List<String> halfImages, List<String> identityImages, List<String> vehicleImages, List<String> otherImages) throws NotExistException {
         Date date=new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         long timestamp=0;
@@ -49,7 +49,7 @@ public class StaffBlServiceImpl implements StaffBlService{
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        staffDataService.addStaff(new Staff(name,identity,phone,address,sex,height,accent,bodyType,area,type,vehicleType,vehicleLicense,images,timestamp));
+        staffDataService.addStaff(new Staff(name,identity,phone,address,sex,height,accent,bodyType,area,type,vehicleType,vehicleLicense,wholeImages,halfImages,identityImages,vehicleImages,otherImages,timestamp));
         return new InfoResponse();
     }
 

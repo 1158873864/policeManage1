@@ -66,6 +66,9 @@ function deletequestion(n){
 }
 
 
+function backTo(){
+    window.location.href="index.html";
+}
 
 function changegroup(to){
     $("#page1").show();

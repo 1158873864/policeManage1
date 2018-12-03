@@ -19,13 +19,13 @@
 
 </head>
 
-<body ontouchstart class="mui-content" style="
+<body ontouchstart class="mui-index" style="
 width: 100%;
 position: fixed;
 height: 100%;
 overflow:auto;
 margin: 0 auto;">
-
+<div style="width: 100%;position: fixed;height: 100%;overflow: auto;margin: 0 auto;background: rgba(255,255,255,0.6);">
 <header class="am-topbar am-topbar-inverse admin-header" style="background: rgba(0,70,255,0.5);">
     <div class="am-topbar-brand">
         <img src="image/logo.jpg" class=" radius-circle rotate-hover" height="40" alt="" style="margin-top: -2%;"/>
@@ -44,7 +44,7 @@ margin: 0 auto;">
             <li class="am-dropdown" data-am-dropdown>
 
                 <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
-                    <span class="am-icon-users"></span> 菜单 <span class="am-icon-caret-down"></span>
+                    <span class="am-icon-users"></span> 快捷菜单 <span class="am-icon-caret-down"></span>
                 </a>
                 <ul class="am-dropdown-content">
                     <li><a href="me.html"><span class="am-icon-user"></span> 我的信息</a></li>
@@ -66,26 +66,19 @@ margin: 0 auto;">
     </div>
 </header>
 <section class="ui-container">
-    <div class="ui-tooltips ui-tooltips-warn" style="top:9%;position: fixed">
-        <div class="ui-tooltips-cnt ui-border-b" style="font-size: 1.8rem;">
-            <span style="left: 15%;"><i></i>采集到的信息仅可用户警务工作！</span><a class="ui-icon-close"></a>
-        </div>
-    </div>
+    <img src="image/公安.jpg" style="height: 60%;width: 100%;top: 10%;position: absolute;">
     <div>
-        <img src="image/index.jpeg" style="width: 100%;height:83%;top:17%;position: absolute;">
-    <img src="image/徽章.png" style="width: 6rem;height:6rem;top:18%;left: 0%;position: absolute;">
-            <img src="image/字体.png" style="width: 4rem;height:10rem;top:18%;left: 90%;position: absolute;">
 
         <button onclick="gotoAdd()" class="ui-btn-lg-nowhole ui-btn-primary" style="alignment: center;top:70%;left: 50%;position: absolute;width: 20rem;margin-left:-10rem;">
-            采集信息
+            信息采集
         </button>
 
         <button id="l3" onclick="gotoList()" class="ui-btn-lg-nowhole ui-btn-primary" style="alignment: center;top:80%;left: 50%;position: absolute;width: 20rem;margin-left:-10rem;">
-            检索人员信息
+            信息检索
         </button>
 
         <button id="l4" onclick="gotoUser()" class="ui-btn-lg-nowhole ui-btn-primary" style="alignment: center;top:90%;left: 50%;position: absolute;width: 20rem;margin-left:-10rem;">
-            管理用户
+            用户管理
         </button>
 
     </div>
@@ -154,5 +147,6 @@ margin: 0 auto;">
         $("#l4").hide();
     }
 </script>
+</div>
 </body>
 </html>

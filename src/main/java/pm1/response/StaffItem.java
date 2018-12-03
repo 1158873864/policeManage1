@@ -35,14 +35,35 @@ public class StaffItem {
 
     private String vehicleLicense;
 
-    private List<String> images;
+    @Column
+    @ElementCollection(targetClass = String.class)
+    private List<String> wholeImages;
+
+
+    @Column
+    @ElementCollection(targetClass = String.class)
+    private List<String> halfImages;
+
+    @Column
+    @ElementCollection(targetClass = String.class)
+    private List<String> identityImages;
+
+    @Column
+    @ElementCollection(targetClass = String.class)
+    private List<String> vehicleImages;
+
+    @Column
+    @ElementCollection(targetClass = String.class)
+    private List<String> otherImages;
 
     private String time;
-    public StaffItem(int id, String name, String identity, String phone, String address, String sex, String height, String accent, String bodyType, String area, String type, String vehicleType, String vehicleLicense, List<String> images,String time) {
+
+
+    public StaffItem(int id, String name, String identity, String phone, String address, String sex, String height, String accent, String bodyType, String area, String type, String vehicleType, String vehicleLicense, List<String> wholeImages, List<String> halfImages, List<String> identityImages, List<String> vehicleImages, List<String> otherImages, String time) {
         this.id = id;
         this.name = name;
         this.identity = identity;
-        this.phone=phone;
+        this.phone = phone;
         this.address = address;
         this.sex = sex;
         this.height = height;
@@ -52,9 +73,14 @@ public class StaffItem {
         this.type = type;
         this.vehicleType = vehicleType;
         this.vehicleLicense = vehicleLicense;
-        this.images = images;
-        this.time=time;
+        this.wholeImages = wholeImages;
+        this.halfImages = halfImages;
+        this.identityImages = identityImages;
+        this.vehicleImages = vehicleImages;
+        this.otherImages = otherImages;
+        this.time = time;
     }
+
 
     public StaffItem(Staff staff){
         this.id = staff.getId();
@@ -70,9 +96,14 @@ public class StaffItem {
         this.type = staff.getType();
         this.vehicleType = staff.getVehicleType();
         this.vehicleLicense = staff.getVehicleLicense();
-        this.images = staff.getImages();
+        this.wholeImages=staff.getWholeImages();
+        this.halfImages=staff.getHalfImages();
+        this.identityImages=staff.getIdentityImages();
+        this.vehicleImages=staff.getVehicleImages();
+        this.otherImages=staff.getOtherImages();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         this.time=sdf.format(new Date(staff.getTimestamp()));
+
     }
 
     public int getId() {
@@ -175,17 +206,51 @@ public class StaffItem {
         return vehicleLicense;
     }
 
+    public List<String> getWholeImages() {
+        return wholeImages;
+    }
+
+    public void setWholeImages(List<String> wholeImages) {
+        this.wholeImages = wholeImages;
+    }
+
+    public List<String> getHalfImages() {
+        return halfImages;
+    }
+
+    public void setHalfImages(List<String> halfImages) {
+        this.halfImages = halfImages;
+    }
+
+    public List<String> getIdentityImages() {
+        return identityImages;
+    }
+
+    public void setIdentityImages(List<String> identityImages) {
+        this.identityImages = identityImages;
+    }
+
+    public List<String> getVehicleImages() {
+        return vehicleImages;
+    }
+
+    public void setVehicleImages(List<String> vehicleImages) {
+        this.vehicleImages = vehicleImages;
+    }
+
+    public List<String> getOtherImages() {
+        return otherImages;
+    }
+
+    public void setOtherImages(List<String> otherImages) {
+        this.otherImages = otherImages;
+    }
+
     public void setVehicleLicense(String vehicleLicense) {
         this.vehicleLicense = vehicleLicense;
     }
 
-    public List<String> getImages() {
-        return images;
-    }
 
-    public void setImages(List<String> images) {
-        this.images = images;
-    }
 
     public String getTime() {
         return time;

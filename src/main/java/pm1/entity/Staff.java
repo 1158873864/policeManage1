@@ -51,13 +51,31 @@ public class Staff {
 
     @Column
     @ElementCollection(targetClass = String.class)
-    private List<String> images;
+    private List<String> wholeImages;
+
+
+    @Column
+    @ElementCollection(targetClass = String.class)
+    private List<String> halfImages;
+
+    @Column
+    @ElementCollection(targetClass = String.class)
+    private List<String> identityImages;
+
+    @Column
+    @ElementCollection(targetClass = String.class)
+    private List<String> vehicleImages;
+
+    @Column
+    @ElementCollection(targetClass = String.class)
+    private List<String> otherImages;
 
     public Staff(){};
-    public Staff(String name, String identity, String phone, String address, String sex, String height, String accent, String bodyType, String area, String type, String vehicleType, String vehicleLicense, List<String> images,long timestamp) {
+
+    public Staff(String name, String identity, String phone, String address, String sex, String height, String accent, String bodyType, String area, String type, String vehicleType, String vehicleLicense, List<String> wholeImages, List<String> halfImages, List<String> identityImages, List<String> vehicleImages, List<String> otherImages, long timestamp) {
         this.name = name;
         this.identity = identity;
-        this.phone=phone;
+        this.phone = phone;
         this.address = address;
         this.sex = sex;
         this.height = height;
@@ -67,9 +85,16 @@ public class Staff {
         this.type = type;
         this.vehicleType = vehicleType;
         this.vehicleLicense = vehicleLicense;
-        this.images = images;
-        this.timestamp=timestamp;
+        this.wholeImages = wholeImages;
+        this.halfImages = halfImages;
+        this.identityImages = identityImages;
+        this.vehicleImages = vehicleImages;
+        this.otherImages = otherImages;
+        this.timestamp = timestamp;
+
     }
+
+
 
 
     public int getId() {
@@ -176,13 +201,6 @@ public class Staff {
         this.vehicleLicense = vehicleLicense;
     }
 
-    public List<String> getImages() {
-        return images;
-    }
-
-    public void setImages(List<String> images) {
-        this.images = images;
-    }
 
     public long getTimestamp() {
         return timestamp;
@@ -190,5 +208,45 @@ public class Staff {
 
     public void setTimestamp(long timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public List<String> getWholeImages() {
+        return wholeImages;
+    }
+
+    public void setWholeImages(List<String> wholeImages) {
+        this.wholeImages = wholeImages;
+    }
+
+    public List<String> getHalfImages() {
+        return halfImages;
+    }
+
+    public void setHalfImages(List<String> halfImages) {
+        this.halfImages = halfImages;
+    }
+
+    public List<String> getIdentityImages() {
+        return identityImages;
+    }
+
+    public void setIdentityImages(List<String> identityImages) {
+        this.identityImages = identityImages;
+    }
+
+    public List<String> getVehicleImages() {
+        return vehicleImages;
+    }
+
+    public void setVehicleImages(List<String> vehicleImages) {
+        this.vehicleImages = vehicleImages;
+    }
+
+    public List<String> getOtherImages() {
+        return otherImages;
+    }
+
+    public void setOtherImages(List<String> otherImages) {
+        this.otherImages = otherImages;
     }
 }
