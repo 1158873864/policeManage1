@@ -3,8 +3,8 @@
 server:
   port: 8080
   ssl:
-      key-store: config/jrq.jks
-      key-store-password: njujrq123
+      key-store: config/mycert.jks
+      key-store-password: 93UQiHqB
       key-store-type: JKS
 logging:
   level:
@@ -18,11 +18,6 @@ jwt:
   secret: "wfhg9hr-1jfpjf-p3j-=vgf0pvmo3k=2-3rj0-3j=gn[=3-g[mj"
   header: Authorization
   tokenHead: "Bearer "
-oos:
-  accessKey: "c4582dec5d0809103126"
-  secretKey: "47c783687d4c452c5d71b817b8c481915fb0094a"
-  endPoint: "http://oos-bj2.ctyunapi.cn"
-  bucketName: "pm"
 spring:
   jpa:
     database: mysql

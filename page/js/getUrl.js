@@ -1,5 +1,5 @@
-//var address = "http://localhost:8080";
-var address = "https://junrongcenter.com:8080";
+var address = "https://www.shaoshanlu.com:8080";
+//var address = "https://junrongcenter.com:8080";
 var imagePath="../";
 function getUrl() {
     return address;
